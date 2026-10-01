@@ -22,11 +22,15 @@ public class Product {
 	}
 	
 	//a method for updating the price
-	public void updatePrice(double price){
+	public void updateProductPrice(double price){
 		this.price = price;
 	}
+	
+	//a mehtod for updating the quantity
 			
-			
+	public void updateProductQuantity(int quantity){
+		this.quantity = quantity;
+	}	
 	
 	//creating the getter/setter enforcing (encapsulation)
     public int getProductId() {
