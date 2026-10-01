@@ -21,6 +21,13 @@ public class Product {
 		this.brand = brand;
 	}
 	
+	//a method for updating the price
+	public void updatePrice(double price){
+		this.price = price;
+	}
+			
+			
+	
 	//creating the getter/setter enforcing (encapsulation)
     public int getProductId() {
     	
