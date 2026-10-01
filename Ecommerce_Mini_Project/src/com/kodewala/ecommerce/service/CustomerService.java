@@ -9,6 +9,5 @@ public interface CustomerService {
   void viewAllcustomer();
   void viewAllCustomerDetails(int  customerId );
   void updateCustomerAddress(int customerId, String customerAddress);
-  
-
+ 
 }
