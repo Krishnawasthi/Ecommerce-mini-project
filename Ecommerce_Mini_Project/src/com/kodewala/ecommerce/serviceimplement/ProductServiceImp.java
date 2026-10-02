@@ -46,7 +46,7 @@ public class ProductServiceImp implements ProductService {
 		}
 		else {
 			
-			System.out.println("Product is not found");
+			System.out.println("Product not found");
 		}
 				
 		
@@ -55,25 +55,50 @@ public class ProductServiceImp implements ProductService {
 	@Override
 	public void searchProductbyName(String productName) {
 		
-		productRepository
+	  List<Product> products = productRepository.findProductByName(productName);
+	  for(Product product : products) {
+	
+	    System.out.println(product);
+	  }
+	 
 	}
 
 	@Override
 	public void searchProductbyCategory(String category) {
-		productRepository
-		
+		 List<Product> products = productRepository.findProductByCategory(category);
+		 
+		 for(Product product : products) {
+				
+			    System.out.println(product);
+			  }
+			 
 	}
 
 	@Override
 	public void updateProductPrice(int productId, double price) {
 		
-		productRepository
+		Boolean result = productRepository.updateProductPrice(productId, price);
+		if(result) {
+			
+			System.out.println("Price Updated Successfully");
+		}
+		else {
+			System.out.println("Product is not found");
+		}
 	}
 
 	@Override
 	public void updateProductQuantity(int productId, int quantity) {
 		
-		productRepository
+		Boolean result = productRepository.updateProductQuantity(productId,quantity);
+		if(result) {
+			
+			System.out.println("Quantity Updated Successfully");
+		}
+		else {
+			System.out.println("Product is not found");
+		}
+	}
 	}
 
-}
+
