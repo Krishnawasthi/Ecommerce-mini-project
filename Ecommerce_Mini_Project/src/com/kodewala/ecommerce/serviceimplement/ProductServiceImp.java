@@ -1,50 +1,79 @@
 package com.kodewala.ecommerce.serviceimplement;
 
+import java.util.List;
+
 import com.kodewala.ecommerce.model.Product;
+import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.ProductService;
 
 public class ProductServiceImp implements ProductService {
+     
+	private ProductRepository productRepository;
+	
+	public ProductServiceImp(ProductRepository productRepository) {
+		
+		this.productRepository = productRepository;
+	}
 
 	@Override
 	public void addProduct(Product product) {
-		// TODO Auto-generated method stub
 		
+		productRepository.addProduct(product);
+		System.out.println("Product Added Successfully");
 	}
 
 	@Override
 	public void viewAllProduct() {
-		// TODO Auto-generated method stub
+		
+		List<Product> products = productRepository.getAllProduct();
+		
+		for(Product product: products) {
+			
+		System.out.println(product);
+		
+		}
 		
 	}
 
 	@Override
 	public void searchProductbyId(int productId) {
-		// TODO Auto-generated method stub
+		
+		Product product = productRepository.findProductById(productId);
+		if(product != null) {
+			
+			System.out.println(product);
+			
+		}
+		else {
+			
+			System.out.println("Product is not found");
+		}
+				
 		
 	}
 
 	@Override
 	public void searchProductbyName(String productName) {
-		// TODO Auto-generated method stub
 		
+		productRepository
 	}
 
 	@Override
 	public void searchProductbyCategory(String category) {
-		// TODO Auto-generated method stub
+		productRepository
 		
 	}
 
 	@Override
 	public void updateProductPrice(int productId, double price) {
-		// TODO Auto-generated method stub
 		
+		productRepository
 	}
 
 	@Override
 	public void updateProductQuantity(int productId, int quantity) {
-		// TODO Auto-generated method stub
 		
+		productRepository
 	}
 
 }
