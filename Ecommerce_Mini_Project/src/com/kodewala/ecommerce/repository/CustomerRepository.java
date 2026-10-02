@@ -9,10 +9,10 @@ import com.kodewala.ecommerce.model.Customer;
 
 public class CustomerRepository {
 
-	//Storing the customer into the map with their customer id and and othrer details
+	//.Storing the customer into the map with their customer id and and othrer details
 	Map<Integer, Customer> customers = new HashMap<>(); 
 	
-	//Adding the customer into the map 
+	//1.Adding the customer into the map 
 	public boolean addCustomers(int customerId, Customer customer) {
 		if(customers.containsKey(customerId)) {
 			
@@ -23,36 +23,38 @@ public class CustomerRepository {
 		
 	}
 	
-	//finding the customer details using customerId
+	//2.finding the customer details using customerId
 	public Customer findCostomerById(int customerId) {
 		
 		return customers.get(customerId);
 		
 	}
-	//retrieving all details of the customer
+	//3.retrieving all details of the customer
 	public List<Customer> getAllCustomer() {
 		
 		return new ArrayList<>(customers.values());
 	}
 	
 	
-	//updating the details of the customer details like name, email , mobilenumber , address
+	//4.updating the details of the customer details like name, email , mobilenumber , address
 	public boolean updateCustomer(int customerId, Customer updatedCustomer) {
 		
 	 Customer customer = customers.get(customerId);
-	 if(customer == null) {
-		 
-		 return false;
-	 }
-	 
+	 if(customer != null) {
 		 
 		 customer.setCustomerName(updatedCustomer.getCustomerName());
 		 customer.setEmail(updatedCustomer.getEmail());
 		 customer.setMobile(updatedCustomer.getMobile());
 		 customer.setAddress(updatedCustomer.getAddress());
 		 return true;
+	 }
+	 else {
+		 
+		
+		 
+		 return false;
 	 
-	
+	 }
 			
 	}
 }

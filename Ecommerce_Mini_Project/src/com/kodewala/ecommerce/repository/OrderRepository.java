@@ -11,14 +11,14 @@ import com.kodewala.ecommerce.model.Order;
 public class OrderRepository {
 	List<Order> orders = new ArrayList<>(); 
 	
-	//adding the order product into order repository
+	//1.adding the order product into order repository
 	public void addOrder(Order order) {
 		
 		orders.add(order);
 		
 	}
 	
-	//returning  all the  order through a list 
+	//2.returning  all the  order through a list 
 	public List<Order> getAllOrder() {
 		
 		return orders;
@@ -37,10 +37,10 @@ public class OrderRepository {
 		return null;
 	}
 	
-	//creating the method to gettting the all orders of the customer that are ordered by the customer
+	//3.creating the method to gettting the all orders of the customer that are ordered by the customer
 	//and we are find these bu customer Id
 	
-	public List<Order> findOrdersByCutomerId(int customerId) {
+	public List<Order> findOrdersByCustomerId(int customerId) {
 		
 		List<Order> customerOrder = new ArrayList<>();
 		
@@ -55,7 +55,7 @@ public class OrderRepository {
 		
 		
 	}
-	//removing order from orders list where all the orders are there 
+	//4.removing order from orders list where all the orders are there 
 	public void removeOrder(Order order) {
 		
 		orders.remove(order);

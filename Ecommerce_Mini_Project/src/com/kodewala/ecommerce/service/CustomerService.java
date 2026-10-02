@@ -6,7 +6,7 @@ public interface CustomerService {
 	
   void registerCustomer(Customer customer);	
   void searchById(int customerId);
-  void viewAllCustomerDetails(int customerId );
+  void viewAllCustomer();
   void updateCustomerDetails(int customerId, Customer customer);
  
 }
