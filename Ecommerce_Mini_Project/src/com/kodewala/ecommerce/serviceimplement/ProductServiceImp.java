@@ -5,7 +5,8 @@ import java.util.List;
 import com.kodewala.ecommerce.model.Product;
 import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.ProductService;
-
+  /*In  this file we are implementing the methods that set by service interface 
+   * called all the methods from ProductRepsitory where we have store the product and write the logic for operation on product*/
 public class ProductServiceImp implements ProductService {
      
 	private ProductRepository productRepository;
@@ -86,7 +87,8 @@ public class ProductServiceImp implements ProductService {
 			System.out.println("Product is not found");
 		}
 	}
-
+   
+	
 	@Override
 	public void updateProductQuantity(int productId, int quantity) {
 		
