@@ -13,32 +13,46 @@ public class CustomerRepository {
 	Map<Integer, Customer> customers = new HashMap<>(); 
 	
 	//Adding the customer into the map 
-	public void addCustomers(int customerId, Customer customer) {
-		
+	public boolean addCustomers(int customerId, Customer customer) {
+		if(customers.containsKey(customerId)) {
+			
+			return false;
+		}
 		customers.put(customerId, customer);
+		return true;
 		
 	}
 	
 	//finding the customer details using customerId
 	public Customer findCostomerById(int customerId) {
 		
-		
-	    for(Map.Entry<Integer, Customer> customer : customers.entrySet()){
-			
-			if(customer.getKey() == customerId) {
-				
-				return customer.getValue();
-			}
-		}
-		
-		
-		return null;
-		
+		return customers.get(customerId);
 		
 	}
 	//retrieving all details of the customer
 	public List<Customer> getAllCustomer() {
 		
 		return new ArrayList<>(customers.values());
+	}
+	
+	
+	//updating the details of the customer details like name, email , mobilenumber , address
+	public boolean updateCustomer(int customerId, Customer updatedCustomer) {
+		
+	 Customer customer = customers.get(customerId);
+	 if(customer == null) {
+		 
+		 return false;
+	 }
+	 
+		 
+		 customer.setCustomerName(updatedCustomer.getCustomerName());
+		 customer.setEmail(updatedCustomer.getEmail());
+		 customer.setMobile(updatedCustomer.getMobile());
+		 customer.setAddress(updatedCustomer.getAddress());
+		 return true;
+	 
+	
+			
 	}
 }
