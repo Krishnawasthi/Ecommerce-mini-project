@@ -23,4 +23,42 @@ public class OrderRepository {
 		
 		return orders;
 	}
+	
+	public Order findOrderById(int orderId) {
+		
+		for(Order order : orders) {
+			if(order.getOrderId() == orderId) {
+				
+				return order;
+			}
+			
+		}
+		
+		return null;
+	}
+	
+	//creating the method to gettting the all orders of the customer that are ordered by the customer
+	//and we are find these bu customer Id
+	
+	public List<Order> findOrdersByCutomerId(int customerId) {
+		
+		List<Order> customerOrder = new ArrayList<>();
+		
+		for(Order order: orders) {
+		if(order.getCustomerId() == customerId) {	
+			
+			customerOrder.add(order);
+		    }
+		}
+		return customerOrder;
+		
+		
+		
+	}
+	//removing order from orders list where all the orders are there 
+	public void removeOrder(Order order) {
+		
+		orders.remove(order);
+		
+	}
 }

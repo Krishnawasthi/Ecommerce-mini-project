@@ -18,8 +18,8 @@ public class Order {
 		this.customerId = customerId;
 		this.items = items;
 		this.totalAmount = calculateTotalAmount();
-		this.orderStatus = orderStatus.PLACED;
-		this.orderDate = orderDate.now();
+		this.orderStatus = OrderStatus.PLACED;
+		this.orderDate = LocalDateTime.now();
 	}
 
 	public double calculateTotalAmount() {

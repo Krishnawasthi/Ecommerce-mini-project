@@ -2,14 +2,14 @@ package com.kodewala.ecommerce.model;
 
 public class Customer {
   //details of the customer 
-	private String customerId; 
+	private int customerId; 
 	private String customerName;
 	private String email;
 	private String mobile;
 	private String address;
 	
 	//creating costructor to initialize customer details
-	public Customer(String customerId, String customerName, String email, String mobile, String address) {
+	public Customer(int customerId, String customerName, String email, String mobile, String address) {
 		super();
 		this.customerId = customerId;
 		this.customerName = customerName;
@@ -18,10 +18,10 @@ public class Customer {
 		this.address = address;
 	}
 	//creatign getter and setter method for customer details 
-	public String getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 	public String getCustomerName() {

@@ -11,7 +11,7 @@ public class EcommerceApplication {
 		System.out.println(product);
 	
  
-		Customer c = new Customer("krish2123","Krishna", "krisjnaAwasthi@gmail.com", "803533429"," btm layout second stage");
+		Customer c = new Customer(101,"Krishna", "krisjnaAwasthi@gmail.com", "803533429"," btm layout second stage");
 		//System.out.println(c);
 		
 		CartItem ci = new CartItem(product, 3);
