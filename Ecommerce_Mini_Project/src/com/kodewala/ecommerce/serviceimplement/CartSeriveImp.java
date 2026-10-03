@@ -1,42 +1,71 @@
 package com.kodewala.ecommerce.serviceimplement;
 
+import com.kodewala.ecommerce.model.Product;
+import com.kodewala.ecommerce.repository.CartRepository;
+import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.CartService;
 
 public class CartSeriveImp implements CartService{
+	//accessging the cart repo and product repo where all the products are stored
+	private CartRepository cartRepository;
+	private ProductRepository productRepository;
+	
+	
 
-	@Override
-	public void addToCart(int customerId, int productId, int quantity) {
-		// TODO Auto-generated method stub
-		
+	public CartSeriveImp(CartRepository cartRepository, ProductRepository productRepository) {
+		super();
+		this.cartRepository = cartRepository;
+		this.productRepository = productRepository;
 	}
 
 	@Override
-	public void removeFromCart(int customerId, int productId) {
-		// TODO Auto-generated method stub
-		
+	public void addToCart(int customerId, int productId, int quantity) {
+	
+		Product product = productRepository.findProductById(productId);
+//-----------------------------------adding product into cart--------------------------------------//	
+		//IF PRODUCT NOT IN THE PRODUCT REPOSITORY
+		if(product == null) {
+			
+			System.out.println("Product not found");
+		}
+		//IF QUANTITY IS LESS THAN 0
+		if(quantity <= 0 ) {
+			
+			System.out.println("Out of Stock");
+		}
+		//IF CUSTOMER ADD MORE QUANTITY THAN THE PRODUCT QUANTITY
+		if(quantity > product.getQuantity()){
+			
+			
+			
+		}
+				
 	}
 
 	@Override
 	public void increaseQuantity(int customerId, int productId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void decreaseQuantity(int customerId, int productId) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void viewCart(int customerId) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void totalCartValue(int customerId) {
-		// TODO Auto-generated method stub
+		
+		
+	}
+	@Override
+	public void removeFromCart(int customerId, int productId) {
 		
 	}
 
