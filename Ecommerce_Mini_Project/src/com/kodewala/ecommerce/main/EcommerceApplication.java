@@ -19,7 +19,7 @@ import com.kodewala.ecommerce.serviceimplement.ProductServiceImp;
 public class EcommerceApplication {
 
 	public static void main(String[] args) {
-
+		System.out.println("MAIN STARTED");
 		// creating repository object
 		ProductRepository productRepository = new ProductRepository();
 
