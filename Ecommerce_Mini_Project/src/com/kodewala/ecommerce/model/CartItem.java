@@ -3,11 +3,11 @@ package com.kodewala.ecommerce.model;
 public class CartItem  {
    
 	private Product product;
-	private double quantity;
+	private int quantity;
 	
 	
 	
-	public CartItem(Product product, double quantity) {
+	public CartItem(Product product, int quantity) {
 		super();
 		this.product = product;
 		this.quantity = quantity;
@@ -24,10 +24,10 @@ public class CartItem  {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
-	public double getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(double quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 	
