@@ -101,7 +101,7 @@ public class EcommerceApplication {
 
 						productService.addProduct(product);
 					}
-
+				
 					// view product
 					else if (adminChoice == 2) {
 
@@ -208,6 +208,8 @@ public class EcommerceApplication {
 					}
 					      
 				}
+				
+			}
 			 else if (choice == 2) {
 
 				System.out.println("Customer Selected");
