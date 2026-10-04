@@ -2,6 +2,7 @@ package com.kodewala.ecommerce.serviceimplement;
 
 import java.util.List;
 
+import com.kodewala.ecommerce.exception.ProductNotFoundException;
 import com.kodewala.ecommerce.model.Product;
 import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.ProductService;
@@ -38,19 +39,16 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public void searchProductbyId(int productId) {
-		
+
 		Product product = productRepository.findProductById(productId);
-		if(product != null) {
-			
-			System.out.println(product);
-			
+
+		if(product == null) {
+
+			throw new ProductNotFoundException(
+					"Product with ID " + productId + " does not exist");
 		}
-		else {
-			
-			System.out.println("Product not found");
-		}
-				
-		
+
+		System.out.println(product);
 	}
 
 	@Override

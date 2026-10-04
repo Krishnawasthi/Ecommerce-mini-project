@@ -8,6 +8,8 @@ import com.kodewala.ecommerce.model.Product;
 import com.kodewala.ecommerce.repository.CartRepository;
 import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.CartService;
+import com.kodewala.ecommerce.exception.ProductNotFoundException;
+import com.kodewala.ecommerce.exception.InsufficientStockException;
 
 public class CartSeriveImp implements CartService{
 	//accessging the cart repo and product repo where all the products are stored
@@ -31,9 +33,9 @@ public class CartSeriveImp implements CartService{
 //-----------------------------------adding product into cart--------------------------------------//	
 		//IF PRODUCT NOT IN THE PRODUCT REPOSITORY
 		if(product == null) {
-			
-			System.out.println("Product not found");
-			return;
+
+			throw new ProductNotFoundException(
+					"Product with ID " + productId + " does not exist");
 		}
 		//IF QUANTITY IS LESS THAN 0
 		if(quantity <= 0 ) {
@@ -55,12 +57,10 @@ public class CartSeriveImp implements CartService{
 				if(item.getProduct().getProductId() == productId) {
 					
 					//IF CUSTOMER ADD MORE QUANTITY THAN THE PRODUCT QUANTITY
-					
 					if(item.getQuantity() + quantity > product.getQuantity()) {
-						
-						
-						System.out.println("Insufficient Stock");
-	                    return;
+
+						throw new InsufficientStockException(
+								"Not enough stock for product ID " + productId);
 					}
 					
 				item.setQuantity(item.getQuantity()+ quantity);
@@ -74,9 +74,10 @@ public class CartSeriveImp implements CartService{
 			if(!productAlreadyExist){
 				
 				if(quantity > product.getQuantity()) {
-			        System.out.println("Insufficient Stock");
-			        return;
-			    }
+
+					throw new InsufficientStockException(
+							"Not enough stock for product ID " + productId);
+				}
 			CartItem cartItem = new CartItem(product, quantity);
 			
 			cart.add(cartItem);  //adding a new product cart item into cart 
