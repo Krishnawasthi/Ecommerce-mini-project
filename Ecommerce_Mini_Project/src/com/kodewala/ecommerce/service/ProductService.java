@@ -10,4 +10,5 @@ public interface ProductService {
     void searchProductbyCategory(String category);
     void updateProductPrice(int productId, double price);
     void updateProductQuantity(int productId, int quantity);
+    void deleteProduct(int productId);
 }

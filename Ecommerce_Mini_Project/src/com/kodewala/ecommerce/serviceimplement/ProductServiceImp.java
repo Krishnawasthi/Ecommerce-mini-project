@@ -88,7 +88,7 @@ public class ProductServiceImp implements ProductService {
 		}
 	}
    
-	
+	//update the quantity
 	@Override
 	public void updateProductQuantity(int productId, int quantity) {
 		
@@ -101,6 +101,23 @@ public class ProductServiceImp implements ProductService {
 			System.out.println("Product is not found");
 		}
 	}
+	//delete the product
+	
+	@Override
+	public void deleteProduct(int productId) {
+
+	    Boolean result = productRepository.deleteProduct(productId);
+
+	    if (result) {
+
+	        System.out.println("Product Deleted Successfully");
+
+	    } else {
+
+	        System.out.println("Product is not found");
+	    }
+	}
+	
 	}
 
 

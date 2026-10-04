@@ -53,7 +53,7 @@ public class EcommerceApplication {
 
 			System.out.print("Enter your choice: ");
 			int choice = sc.nextInt();
-
+			System.out.println("--------------------Admin------------------");
 			if (choice == 1) {
 
 				System.out.println("Admin Selected");
@@ -75,34 +75,127 @@ public class EcommerceApplication {
 
 					System.out.print("Enter your choice: ");
 					int adminChoice = sc.nextInt();
-					if(adminChoice == 1) {
-						
-						System.out.println("Add Product selected");
+
+					// add product
+					if (adminChoice == 1) {
+
+						System.out.print("Enter product Id: ");
+						int productId = sc.nextInt();
+
+						System.out.print("Enter Product Name: ");
+						String productName = sc.next();
+
+						System.out.print("Enter Category: ");
+						String category = sc.next();
+
+						System.out.print("Enter Price: ");
+						double price = sc.nextDouble();
+
+						System.out.print("Enter Quantity: ");
+						int quantity = sc.nextInt();
+
+						System.out.print("Enter Brand: ");
+						String brand = sc.next();
+
+						Product product = new Product(productId, productName, category, price, quantity, brand);
+
+						productService.addProduct(product);
 					}
-					
+
+					// view product
 					else if (adminChoice == 2) {
 
-						System.out.println("View Product Selected");
+						productService.viewAllProduct();
+
 					}
+
+					// seach product
 					else if (adminChoice == 3) {
 
-						System.out.println("Search Product selected");
+						System.out.println("1- Search By Product Id");
+						System.out.println("2- Search By Product Name");
+						System.out.println("3- Search By Category");
+
+						System.out.print("Enter your choice: ");
+						int searchChoice = sc.nextInt();
+
+						if (searchChoice == 1) {
+
+							System.out.print("Enter Product Id: ");
+							int productId = sc.nextInt();
+
+							productService.searchProductbyId(productId);
+
+						} else if (searchChoice == 2) {
+
+							System.out.print("Enter Product Name: ");
+							String productName = sc.next();
+
+							productService.searchProductbyName(productName);
+
+						} else if (searchChoice == 3) {
+
+							System.out.print("Enter Category: ");
+							String category = sc.next();
+
+							productService.searchProductbyCategory(category);
+
+						} else {
+
+							System.out.println("Invalid search choice");
+						}
 
 					} else if (adminChoice == 4) {
 
-						System.out.println("Update Product selected");
+						System.out.println("1- Update Product Price");
+						System.out.println("2- Update Product Quantity");
+
+						System.out.print("Enter your choice: ");
+						int updateChoice = sc.nextInt();
+
+						if (updateChoice == 1) {
+
+							System.out.print("Enter Product Id: ");
+							int productId = sc.nextInt();
+
+							System.out.print("Enter New Price: ");
+							double price = sc.nextDouble();
+
+							productService.updateProductPrice(productId, price);
+
+						} else if (updateChoice == 2) {
+
+							System.out.print("Enter Product Id: ");
+							int productId = sc.nextInt();
+
+							System.out.print("Enter New Quantity: ");
+							int quantity = sc.nextInt();
+
+							productService.updateProductQuantity(productId, quantity);
+
+						} else {
+
+							System.out.println("Invalid choice");
+						}
 
 					} else if (adminChoice == 5) {
 
-						System.out.println("Delete Product selected");
+					
 
-					} else if (adminChoice == 6) {
+						    System.out.print("Enter Product Id: ");
+						    int productId = sc.nextInt();
 
-						System.out.println("View Customers selected");
+						    productService.deleteProduct(productId);
+
+						}
+
+					 else if (adminChoice == 6) {
+
+						 customerService.viewAllCustomer();
 
 					} else if (adminChoice == 7) {
 
-						System.out.println("View All Orders selected");
+						 orderService.viewAllOrders();
 
 					} else if (adminChoice == 8) {
 
@@ -113,86 +206,83 @@ public class EcommerceApplication {
 
 						System.out.println("Invalid choice");
 					}
+					      
 				}
-
-					
-
-				
-			} else if (choice == 2) {
+			 else if (choice == 2) {
 
 				System.out.println("Customer Selected");
-				
+
 				System.out.println();
 				System.out.println("----------------------------------------------");
-			    System.out.println("       CUSTOMER MENU");
-			    System.out.println("----------------------------------------------");
-			    System.out.println("1- Register");
-			    System.out.println("2- Login");
-			    System.out.println("3- View Products");
-			    System.out.println("4- Search Product");
-			    System.out.println("5- Add Product to Cart");
-			    System.out.println("6- View Cart");
-			    System.out.println("7- Remove Product from Cart");
-			    System.out.println("8- Place Order");
-			    System.out.println("9- View My Orders");
-			    System.out.println("10- Cancel Order");
-			    System.out.println("11- Logout");
+				System.out.println("       CUSTOMER MENU");
+				System.out.println("----------------------------------------------");
+				System.out.println("1- Register");
+				System.out.println("2- Login");
+				System.out.println("3- View Products");
+				System.out.println("4- Search Product");
+				System.out.println("5- Add Product to Cart");
+				System.out.println("6- View Cart");
+				System.out.println("7- Remove Product from Cart");
+				System.out.println("8- Place Order");
+				System.out.println("9- View My Orders");
+				System.out.println("10- Cancel Order");
+				System.out.println("11- Logout");
 
-			    System.out.print("Enter your choice: ");
+				System.out.print("Enter your choice: ");
 
-			    int customerChoice = sc.nextInt();
-			    
-			    if (customerChoice == 1) {
+				int customerChoice = sc.nextInt();
 
-			        System.out.println("Register selected");
+				if (customerChoice == 1) {
 
-			    } else if (customerChoice == 2) {
+            
 
-			        System.out.println("Login selected");
+				} else if (customerChoice == 2) {
 
-			    } else if (customerChoice == 3) {
+					System.out.println("Login selected");
 
-			        System.out.println("View Products selected");
+				} else if (customerChoice == 3) {
 
-			    } else if (customerChoice == 4) {
+					System.out.println("View Products selected");
 
-			        System.out.println("Search Product selected");
+				} else if (customerChoice == 4) {
 
-			    } else if (customerChoice == 5) {
+					System.out.println("Search Product selected");
 
-			        System.out.println("Add Product to Cart selected");
+				} else if (customerChoice == 5) {
 
-			    } else if (customerChoice == 6) {
+					System.out.println("Add Product to Cart selected");
 
-			        System.out.println("View Cart selected");
+				} else if (customerChoice == 6) {
 
-			    } else if (customerChoice == 7) {
+					System.out.println("View Cart selected");
 
-			        System.out.println("Remove Product from Cart selected");
+				} else if (customerChoice == 7) {
 
-			    } else if (customerChoice == 8) {
+					System.out.println("Remove Product from Cart selected");
 
-			        System.out.println("Place Order selected");
+				} else if (customerChoice == 8) {
 
-			    } else if (customerChoice == 9) {
+					System.out.println("Place Order selected");
 
-			        System.out.println("View My Orders selected");
+				} else if (customerChoice == 9) {
 
-			    } else if (customerChoice == 10) {
+					System.out.println("View My Orders selected");
 
-			        System.out.println("Cancel Order selected");
+				} else if (customerChoice == 10) {
 
-			    } else if (customerChoice == 11) {
+					System.out.println("Cancel Order selected");
 
-			        System.out.println("Logout");
-			        break;
+				} else if (customerChoice == 11) {
 
-			    } else {
+					System.out.println("Logout");
+					break;
 
-			        System.out.println("Invalid choice");
-			    }
-			
-			}
+				} else {
+
+					System.out.println("Invalid choice");
+				}
+
+			 }
 
 			else if (choice == 3) {
 
@@ -302,3 +392,4 @@ public class EcommerceApplication {
 	}
 
 }
+		
