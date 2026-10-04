@@ -10,7 +10,6 @@ import com.kodewala.ecommerce.model.Product;
 import com.kodewala.ecommerce.repository.CartRepository;
 import com.kodewala.ecommerce.repository.CustomerRepository;
 import com.kodewala.ecommerce.repository.OrderRepository;
-import com.kodewala.ecommerce.repository.ProductRepository;
 import com.kodewala.ecommerce.service.OrderService;
 
 public class OrderServiceImp implements OrderService {
@@ -19,15 +18,13 @@ public class OrderServiceImp implements OrderService {
 	// accessing cart repo and product repo
 	private CustomerRepository customerRepository;
     private CartRepository cartRepository;
-    private ProductRepository productRepository;
     private OrderRepository orderRepository;
 
 	public OrderServiceImp(CustomerRepository customerRepository, CartRepository cartRepository,
-			ProductRepository productRepository, OrderRepository orderRepository) {
+			OrderRepository orderRepository) {
 		super();
 		this.customerRepository = customerRepository;
 		this.cartRepository = cartRepository;
-		this.productRepository = productRepository;
 		this.orderRepository = orderRepository;
 	}
 //placing order or by finding customer using customer id
@@ -179,8 +176,6 @@ for(Order order: orders) {
 			
 			
 		
-			
-	
 		
 	}
 
